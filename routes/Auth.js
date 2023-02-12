@@ -40,7 +40,7 @@ router.post('/login', async (req, res) => {
 router.post('/token-login', async (req, res) => {
     const {token} = req.body;
     jwt.verify(token, process.env.JWT_TOKEN, (err, tokenDetails) => {
-        if (err) res.status(440).send(err.message);
+        if (err) res.status(440).send("Session Expired. Please Log In Again.");
         User.findById(tokenDetails.userId).then(user => {
             const token = jwt.sign({ userId: user._id, email: user.email }, process.env.JWT_TOKEN, { expiresIn: "10d" });
             res.status(200).json({token: token, user: user});
