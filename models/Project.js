@@ -7,7 +7,7 @@ const Project = mongoose.model('Project', mongoose.Schema({
     eventEntityTags: {type: Object, required: true},
     namedEntityAppearances: {type: Array, required: true},
     eventEntityAppearances: {type: Array, required: true},
-    filename: {type: String, required: true},
+    projectName: {type: String, required: true},
     namedEntities: {type: Object, required: false, default: {}},
     eventEntities: {type: Object, required: false, default: {}},
     relations: {type: Object, required: false, default: {}},
